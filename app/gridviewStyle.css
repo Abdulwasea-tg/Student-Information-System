@@ -1,0 +1,11 @@
+table caption{color:blue;}
+table{border:1px solid;color: red;
+    width: 100%;/* 500px; */}
+
+table td,th{border:1px solid blue;color: black;
+text-align:center;}	
+
+
+thead td{ font-weight:bold;text-align: center;color:#fff; background:#333;padding: 5px;}
+tbody td{text-align: center; background:#DDD; padding: 5px;}
+tfoot td{font-weight:bold;text-align: center;color:#f00; background:#EEE;padding: 5px;}

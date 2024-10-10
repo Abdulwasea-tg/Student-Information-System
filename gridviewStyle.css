@@ -1,0 +1,10 @@
+table caption{text-align: left; background-color:rgba(49, 49, 97, 0.552);color:#FFF;}
+table{border:1px solid;color: red;
+    width: 100%;/* 500px; */}
+
+table td,th{text-align:left;}	
+
+
+thead td{ width: auto;font-weight:bold;text-align: left;color:#fff; background:#333;padding: 5px;}
+tbody td{width: auto;text-align: left; background:#DDD; padding: 5px;}
+tfoot td{width: auto;font-weight:bold;text-align: left;color:#f00; background:#EEE;padding: 5px;}
