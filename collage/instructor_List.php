@@ -1,22 +1,30 @@
 <?php 
 session_start();
 include("..//gridview.php");
-$txtFirstName=$txtLastName=$txtMobile=$department_id="";
+$txtFirstName=$txtLastName=$email=$department="";
 $error=array(
     "txtFirstNameErr"=>"",
     "txtLastNameErr"=>"",
-    "txtMobileErr"=>"",
+    "emailErr"=>"",
 );
 include("controll/instructor/ControllerInstructorData.php");
 
 if(isset($_SESSION["username"])){
     include("../config/connection.php");
 
-    $query = "SELECT student_id, first_name, last_name, date_of_birth, gender,contact_info, address  FROM Student ;";
+    $query = "SELECT*FROM Instructor;";
+    $query2 = "SELECT department_id, department_name from Department";
 
     $res = mysqli_query($conn, $query);
-    if($res){
+    $department_result = mysqli_query($conn, $query2);
+    if($res && $department_result ){
         $result_set = mysqli_fetch_all($res,2);
+        $department_set  = mysqli_fetch_all($department_result,2);
+
+        // Keep department set for editing action page
+        $_SESSION["department_set"] = $department_set;
+        // var_dump($department_set);
+        
     }
     else{
         echo "ERROR: Coud not feach data";
@@ -59,7 +67,7 @@ if(isset($_SESSION["username"])){
         <!-- titel -->
         <span class="titel">
             <i class="icon"><img class="title_ico" src="..//assets//img//icon//job.png" alt="noimg"></img></i>
-            <h3>Students Management</h3>    
+            <h3>Instructors Management</h3>    
         </span>
         
         <!-- countent1 -->
@@ -73,7 +81,7 @@ if(isset($_SESSION["username"])){
                 
                 <tr>
                     <td colspan="1"><label for="" class="label-input">First Name*</label>
-                        <input type="text" name="txtFirstName" id="txtFirstName"  placeholder="Enter username" value="<?php echo $txtFirstName ;?>">
+                        <input type="text" name="txtFirstName" id="txtFirstName"  placeholder="Enter first name" value="<?php echo $txtFirstName ;?>">
                         <span class="error"><?php echo $error["txtFirstNameErr"]; ?></span>
                     </td>
 
@@ -83,38 +91,28 @@ if(isset($_SESSION["username"])){
                     </td>
                 </tr>
                 <tr>
-                    <td colspan="2"><label for="" class="label-input">Mobile*</label>
-                        <input type="tel" name="txtMobile" id="txtMobile" required  placeholder="999594949559" value="<?php echo $txtMobile ;?>">
-                        <span class="error"><?php echo "{$error["txtMobileErr"]}"; ?></span>
-                    </td>
-                </tr>
-                <tr>
-                    <td><label for="" class="label-input">Birth Date*</label>
-                        <input type="date" name="BirthDate" id="BirthDate" required>
-                        <span class="error"><?php echo $error["BirthDateErr"]; ?>
+                    <td colspan="1"><label for="" class="label-input">Contact info*</label>
+                        <input type="email" name="email" id="email" required  placeholder="abcd@gmail.come" value="<?php echo $email ;?>">
+                        <span class="error"><?php echo "{$error["emailErr"]}"; ?></span>
                     </td>
 
-                    <td><label for="" class="label-input">Address*</label>
-                        <input type="text" name="txtAddress" id="txtAddress" required  placeholder="Jedah,23st" value="<?php echo $txtAddress ;?>">
-                        <span class="error"><?php echo $error["txtAddressErr"]; ?></span>
+                    <td>
+                        <select name="department" id="department">
+                            <?php foreach ($department_set as $row) { ?>
+                                <option value="<?php echo $row[0] ?>"><?php echo $row[1] ?></option>
+                            <?php } ?>
+                        </select>
                     </td>
-                
                 </tr>
                 <tr>
-                    <td><label for="" class="label-input">Gender*</label><br>  
-                    <input type="radio" name="gender" id="gender"  value="male"   style="width:auto">  Male
-                    <input type="radio" name="gender" id="gender" value="female"  style="width:auto">  Female
-                    <span class="error"><?php echo $error["genderErr"]; ?></td>
-                </tr>
-                <tr>
-                    <td><input type="submit" name="addStudent" id="addStudent" value="Add"></td>
+                    <td><input type="submit" name="addInstructor" id="addInstructor" value="Add"></td>
                 </tr>
             </table>
             </form>
 
 
-            <?php  $tableName = "Student";
-                    $colName = array("id","First Name", "Last Name", "Date of Birth","Gender", "Contact Info","Address", "delete", "edit");
+            <?php  $tableName = "Instructor";
+                    $colName = array("id","First Name", "Last Name","Department", "Contact Info","delete", "edit");
                     $actions=array("Delete", "Edit");
                         //$data_set = array(array("1", "3", "air","single", "No", "Delete"));
                     $grid = new Gridview($tableName, $colName, $actions) ;

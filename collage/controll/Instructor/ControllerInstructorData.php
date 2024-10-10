@@ -3,12 +3,12 @@ require("../config/connection.php");
 $isValid = true;
 if($_SERVER["REQUEST_METHOD"]=="POST"){
             
-    if(isset($_POST["addStudent"])){
+    if(isset($_POST["addInstructor"])){
         include("validateInstructorInput.php");
           //check if the data is valid insert data if it is valid
           if($isValid){
-            $query = "INSERT INTO student (first_name, last_name, date_of_birth, gender, contact_info, address)";
-            $query.="VALUES('$txtFirstName','$txtLastName', '$BirthDate', '$gender','$txtMobile','$txtAddress');";
+            $query = "INSERT INTO instructor (first_name, last_name,department_id,contact_info)";
+            $query.="VALUES('$txtFirstName','$txtLastName', '$department', '$email');";
 
             //Insert data to the database
             $retval = mysqli_query($conn, $query);
@@ -25,9 +25,9 @@ if($_SERVER["REQUEST_METHOD"]=="POST"){
         
 
     }
-    if(isset($_POST["DeleteStudent"])){
+    if(isset($_POST["DeleteInstructor"])){
         if(isset($_POST["recordId"])){
-            $query = "DELETE FROM student WHERE student_id={$_POST["recordId"]};";
+            $query = "DELETE FROM instructor WHERE instructor_id={$_POST["recordId"]};";
             $retval = mysqli_query($conn, $query);
             if(!$retval){
                 echo '<script> alert("Could not delete record.");</script>';
@@ -40,18 +40,19 @@ if($_SERVER["REQUEST_METHOD"]=="POST"){
     //
     //Edite Job
     //
-    if(isset($_POST["EditStudent"])){
+    if(isset($_POST["EditInstructor"])){
         if(isset($_POST["recordId"])){
             var_dump($_POST["recordId"]);
-            $query = "SELECT*FROM student WHERE student_id={$_POST["recordId"]};";
+            $query = "SELECT*FROM instructor WHERE instructor_id={$_POST["recordId"]};";
             $retval = mysqli_query($conn, $query);
             if(!$retval){
                 echo '<script> alert("Could not Update record.");</script>';
             }
             else{
                 $result_set=mysqli_fetch_assoc($retval);
-                $_SESSION["student"]=$result_set;
-                header("location: student_edit.php" );
+                $_SESSION["instructor"]=$result_set;
+
+                header("location: instructor_edit.php" );
                 echo '<script> alert("Deleted data successfuly.");</script>';
             }
         }
@@ -59,13 +60,13 @@ if($_SERVER["REQUEST_METHOD"]=="POST"){
     //
     //Update Job data
     //
-    if(isset($_POST["updateStudent"])){
+    if(isset($_POST["updateInstructor"])){
         //validate user input
-        include("controll/validateInstructorInput.php");
+        include("validateInstructorInput.php");
         //check if all user input is valid data
         if($isValid){
-            var_dump($_POST["student_id"]);
-          $query = "UPDATE student SET first_name='$txtFirstName', last_name='$txtLastName', date_of_birth='$BirthDate', gender='$gender', contact_info='$txtMobile', address='$txtAddress' WHERE student_id={$_POST["student_id"]}";
+            var_dump($_POST["instructor_id"]);
+          $query = "UPDATE instructor SET first_name='$txtFirstName', last_name='$txtLastName', department_id=$department, contact_info='$email'  WHERE instructor_id={$_POST["instructor_id"]}";
 
           //Execute query
           $retval = mysqli_query($conn, $query);
@@ -78,7 +79,7 @@ if($_SERVER["REQUEST_METHOD"]=="POST"){
           else{
             $_SESSION["message"] = "Updated data successfuly.";
               #echo '<script> alert("Updated data successfuly.");</script>';
-              header("location: student_list.php");
+              header("location: instructor_list.php");
               exit(); 
           }
         }

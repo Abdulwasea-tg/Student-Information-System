@@ -61,7 +61,7 @@ if($_SERVER["REQUEST_METHOD"]=="POST"){
     //
     if(isset($_POST["updateStudent"])){
         //validate user input
-        include("controll/validateStudentInput.php");
+        include("validateStudentInput.php");
         //check if all user input is valid data
         if($isValid){
             var_dump($_POST["student_id"]);

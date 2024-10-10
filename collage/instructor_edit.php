@@ -1,29 +1,22 @@
 <?php 
 session_start();
 include("..//gridview.php");
-$txtFirstName=$txtLastName=$BirthDate=$gender=$txtMobile=$txtAddress="";
-// FirstName, LastName, DateofBirth, Gender, ContactInfo, Address
+$txtFirstName=$txtLastName=$email=$department="";
 $error=array(
     "txtFirstNameErr"=>"",
     "txtLastNameErr"=>"",
-    "txtAddressErr"=>"",
-    "txtMobileErr"=>"",
-    "genderErr"=>"",
-    "BirthDateErr"=>"",
+    "emailErr"=>"",
 );
-// $first_name=$jobVacancy=$jobQualification=$jobSalary=$jobDescription="";
-// first_name, last_name, date_of_birth, gender, contact_info, address
-if(isset($_POST['updateStudent'])){
-    include("controll/Instructor/ControllerInstructorData.php");
-}
+include("controll/instructor/ControllerInstructorData.php");
 
 if(isset($_SESSION["username"])){
-    if(isset($_SESSION["student"])){
-        $student=$_SESSION["student"];
-        // unset($_SESSION["student"]);
+
+    if(isset($_SESSION["instructor"])){
+        $instructor=$_SESSION["instructor"];
+        // unset($_SESSION["instructor"]);
 
     }
-
+    
 }else{
     header("Location: ../app/login.php");
 }
@@ -60,63 +53,50 @@ if(isset($_SESSION["username"])){
     <div class="center">
         <!-- titel -->
         <span class="titel">
-            <i class="icon"><img class="title_ico" src="..//Resorce//job.png" alt="noimg"></img></i>
-            <h3>Edite</h3>    
+            <i class="icon"><img class="title_ico" src="..//assets//img//icon//job.png" alt="noimg"></img></i>
+            <h3>Instructors Management</h3>    
         </span>
         
         <!-- countent1 -->
         <!-- <div> -->
-        <?php include("..//layout//include/message.php");?>
+        <?php include("..//layout//include//message.php");?>
              <!-- countent2 -->
             <div class="container">
 
             <form method="post" action="<?php echo htmlspecialchars($_SERVER['PHP_SELF']); ?>">
-                <input type="hidden" name="student_id" value="<?php echo $student['student_id'] ;?>">
+            <input type="hidden" name="instructor_id" value="<?php echo $instructor['instructor_id'] ;?>">
             <table class="table-input">
                 
                 <tr>
                     <td colspan="1"><label for="" class="label-input">First Name*</label>
-                        <input type="text" name="txtFirstName" id="txtFirstName"  value="<?php echo $student['first_name'] ;?>">
+                        <input type="text" name="txtFirstName" id="txtFirstName"  placeholder="Enter username" value="<?php echo $instructor['first_name'] ;?>">
                         <span class="error"><?php echo $error["txtFirstNameErr"]; ?></span>
                     </td>
 
                     <td colspan="1"><label for="" class="label-input">Last Name*</label>
-                        <input type="text" name="txtLastName" id="txtLastName" required  value="<?php echo $student['last_name'] ;?>">
+                        <input type="text" name="txtLastName" id="txtLastName" required  placeholder="Enter last name" value="<?php echo $instructor['last_name'] ;?>">
                         <span class="error"><?php echo $error["txtLastNameErr"]; ?></span>
                     </td>
                 </tr>
                 <tr>
-                    <td colspan="2"><label for="" class="label-input">Mobile*</label>
-                        <input type="tel" name="txtMobile" id="txtMobile" required  value="<?php echo $student['contact_info'] ;?>">
-                        <span class="error"><?php echo "{$error["txtMobileErr"]}"; ?></span>
-                    </td>
-                </tr>
-                <tr>
-                    <td><label for="" class="label-input">Birth Date*</label>
-                        <input type="date" name="BirthDate" id="BirthDate" required>
-                        <span class="error"><?php echo $error["BirthDateErr"]; ?>
+                    <td colspan="1"><label for="" class="label-input">Contact info*</label>
+                        <input type="email" name="email" id="email" required  placeholder="abcd@gmail.come" value="<?php echo $instructor['contact_info'] ;?>">
+                        <span class="error"><?php echo "{$error["emailErr"]}"; ?></span>
                     </td>
 
-                    <td><label for="" class="label-input">Address*</label>
-                        <input type="text" name="txtAddress" id="txtAddress" required  value="<?php echo $student['address'] ;?>">
-                        <span class="error"><?php echo $error["txtAddressErr"]; ?></span>
+                    <td>
+                        <select name="department" id="department">
+                            <?php foreach ($_SESSION["department_set"] as $row) { ?>
+                                <option value="<?php echo $row[0] ?>" <?php if($row[0]== $instructor['department_id']) echo "selected"?>><?php echo $row[1] ?></option>
+                            <?php } ?>
+                        </select>
                     </td>
-                
                 </tr>
                 <tr>
-                    <td><label for="" class="label-input">Gender*</label><br>  
-                        <input type="radio" name="gender" id="gender"  value="male"  <?php if($student["gender"]=="male"){echo "checked";} ?> style="width:auto">  Male
-                        <input type="radio" name="gender" id="gender" value="female" <?php if($student["gender"]=="female"){echo "checked";} ?> style="width:auto">  Female
-                    <span class="error"><?php echo $error["genderErr"]; ?></td>
-                </tr>
-                <tr>
-                    <td><input type="submit" name="updateStudent" id="updateStudent" value="Update"></td>
+                    <td><input type="submit" name="updateInstructor" id="updateInstructor" value="Update"></td>
                 </tr>
             </table>
             </form>
-
-
-            
 
             </div>
 

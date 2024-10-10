@@ -32,47 +32,26 @@ if($_SERVER["REQUEST_METHOD"]=="POST")
     }// End else
 
 
-    if(empty($_POST["txtAddress"]))
+    if(empty($_POST["department"]))
     {
-        $error["txtAddressErr"] = "Address is required.";
-        $isValid = false;
+        $error["department"] = "Department is required";
     }
     else{
-        $txtAddress = test_input($_POST["txtAddress"]);
+        echo $_POST["department"];
+        $department= $_POST["department"];
     }// End else
 
-
-
-    if(empty($_POST["txtMobile"]))
-    {
-        $error["txtMobileErr"] = "Mobile is required.";
+        // Email validation
+    if (empty($_POST["email"])) {
+        $error["emailErr"] = "Email is required.";
         $isValid = false;
-    }
-    else{
-        $txtMobile = test_input($_POST["txtMobile"]);
-        // check if mobile only contain numbers and whitspace
-        if(!preg_match("/^[0-9-(-)- ]*$/", $txtMobile)){
-            $error["txtMobileErr"] = "Only numbers and whitespace allowed.";
+    } else {
+        $email = test_input($_POST["email"]);
+        if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
+            $error["emailErr"] = "Invalid email format.";
             $isValid = false;
         }
-    }// End else
-
-
-    if(empty($_POST["gender"]))
-    {
-        $error["genderErr"] = "Gender is required";
     }
-    else{
-        $gender= test_input($_POST["gender"]);
-    }// End else
-
-    if(empty($_POST["BirthDate"]))
-    {
-        $error["BirthDateErr"] = "Birth date is required";
-    }
-    else{
-        $BirthDate= test_input($_POST["BirthDate"]);
-    }// End else
 
 
 

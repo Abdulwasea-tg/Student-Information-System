@@ -2,7 +2,7 @@
 session_start();
 include("..//gridview.php");
 $txtFirstName=$txtLastName=$BirthDate=$gender=$txtMobile=$txtAddress="";
-// FirstName, LastName, DateofBirth, Gender, ContactInfo, Address
+
 $error=array(
     "txtFirstNameErr"=>"",
     "txtLastNameErr"=>"",
@@ -11,13 +11,13 @@ $error=array(
     "genderErr"=>"",
     "BirthDateErr"=>"",
 );
-// $first_name=$jobVacancy=$jobQualification=$jobSalary=$jobDescription="";
-// first_name, last_name, date_of_birth, gender, contact_info, address
+
 if(isset($_POST['updateStudent'])){
     include("controll/student/ControllerStudentData.php");
 }
 
 if(isset($_SESSION["username"])){
+    
     if(isset($_SESSION["student"])){
         $student=$_SESSION["student"];
         // unset($_SESSION["student"]);
@@ -93,7 +93,7 @@ if(isset($_SESSION["username"])){
                 </tr>
                 <tr>
                     <td><label for="" class="label-input">Birth Date*</label>
-                        <input type="date" name="BirthDate" id="BirthDate" required>
+                        <input type="date" name="BirthDate" id="BirthDate" required value="<?php echo $student['date_of_birth']; ?>">
                         <span class="error"><?php echo $error["BirthDateErr"]; ?>
                     </td>
 
