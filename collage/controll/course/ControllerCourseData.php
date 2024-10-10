@@ -55,7 +55,7 @@ if($_SERVER["REQUEST_METHOD"]=="POST"){
                 $_SESSION["course"]=$result_set;
 
                 header("location: course_edit.php" );
-                echo '<script> alert("Deleted data successfuly.");</script>';
+                echo '<script> alert("Updated data successfuly.");</script>';
             }
         }
     }

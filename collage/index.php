@@ -18,20 +18,7 @@ if(isset($_SESSION["username"])){
 }else{
     header("Location: ../app/login.php");
 }
-
-/* $username=$_SESSION["username"];
-$password=$_SESSION["password"];
-//echo "<script> alert('usenn= $username ,pass=  $password.');</script>";
-
-if(empty($username) || empty($password)){
-    if(!empty($_SESSION)){
-        session_destroy();
-    }
-    //die("<script> alert('usenn= $username ,pass=  $password.');</script>");
-    header("Location: ../app/index.php");
-} */
-
-
+include("controll/ControllerIndex.php");
 
 ?>
 
@@ -108,7 +95,7 @@ if(empty($username) || empty($password)){
     <div >
                 <!-- titel -->
         <span class="titel">
-            <i class="icon"><img class="title_ico" src="..//Resorce//home.png" alt="noimg"></img></i>
+            <i class="icon"><img class="title_ico" src="..//assets//img//icon//home.png" alt="noimg"></img></i>
             <h3>Dashbboard</h3>    
         </span>
     </div>
@@ -121,6 +108,11 @@ if(empty($username) || empty($password)){
              <!-- countent2 -->
             <div class="container">
                     <ul class="menu">
+                        <li class="l"><a href="student_list.php"><button id="tab_1" class="btn" href=""><i class="icon"><img src="..//assets//img//icon//job.png" alt="noimg"></img></i><span class="count"><h1><?php echo $total_student ?></h1>Students</span></button></a></li>
+                        <li class="l"><a href="department_List.php"><button id="tab_2" class="btn" href=""><i class="icon"><img src="..//assets//img//icon//job.png" alt="noimg"></img></i><span class="count"><h1><?php echo $total_department ?></h1>Departments</span></button></a></li>
+                        <li class="l"><a href="instructor_List.php"><button id="tab_3" class="btn" href=""><i class="icon"><img src="..//assets//img//icon//job.png" alt="noimg"></img></i><span class="count"><h1><?php echo $total_course ?></h1>Instructors</span></button></a></li>
+                        <li class="l"><a href="course_List.php"><button id="tab_4" class="btn" href=""><i class="icon"><img src="..//assets//img//icon//job.png" alt="noimg"></img></i><span class="count"><h1><?php echo $total_instructor ?></h1>Courses</span></button></a></li>
+                        <!-- <li class="l"><a href="course_List.php"><button id="tab_4" class="btn" href=""><i class="icon"><img src="..//assets//img//icon//job.png" alt="noimg"></img></i><span class="count"><h1>20</h1>Enrollments</span></button></a></li> -->
                     </ul>
             </div>
 
