@@ -87,7 +87,7 @@ if(isset($_SESSION["username"])){
                 <tr>
                     <td>
                         <label for="" class="label-input">Credits*</label>
-                        <input type="number" name="txtCredits" id="txtCredits">
+                        <input type="number" name="txtCredits" id="txtCredits" placeholder="Enter Credits">
                         <span class="error"><?php echo $error["txtCreditsErr"]; ?></span>
                     </td>
                 </tr>

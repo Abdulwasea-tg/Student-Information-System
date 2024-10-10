@@ -76,11 +76,13 @@ if(isset($_SESSION["username"])){
                 </tr>
 
                 <tr>
-                        <td><label for="" class="label-input">Credits*</label>
-                        <input type="text" name="txtCredits" id="txtCredits" required  placeholder="Enter credits" value="<?php echo $course['credits'] ;?>">
+                    <td>
+                        <label for="" class="label-input">Credits*</label>
+                        <input type="number" name="txtCredits" id="txtCredits" placeholder="Enter Credits" value="<?php echo $course['credits'] ;?>">
                         <span class="error"><?php echo $error["txtCreditsErr"]; ?></span>
                     </td>
                 </tr>
+
                 <tr>
                     <td>
                         <label for="" class="label-input">Department*</label>
