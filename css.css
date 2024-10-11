@@ -123,10 +123,6 @@ li a, a{
     /* font-weight: bold; */
     padding: 10px;
     padding-left: 40px;
-  
-    background-image: url("Resorce/user_25px.png");
-    background-position: left;
-    background-repeat: no-repeat;
     text-align: left;
     line-height: 40px; 
  
@@ -210,10 +206,11 @@ input[type=submit]{
     width: auto; 
     height: 40px;
     padding: 0px 24px;
-    line-height: 20pt;
+    line-height: 16px;
     font-weight: 500px;
     font-size: 12pt;
-    background-color:#6750A4;/* #7367F0; */ /* #0070C0; */
+    background-color:#6750A4;
+    
     color: #FFFFFF;
     text-align: center;
 }
