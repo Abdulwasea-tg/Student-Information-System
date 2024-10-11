@@ -14,13 +14,6 @@
     }else{
         $password = test_input($_POST["password"]);
     }
-    if(empty($_POST["user_type"])){
-        $user_typeErr = "User type is required.";
-        $isError = true;
-
-    }else{
-        $user_type = test_input($_POST["user_type"]);
-    }
 
 
     function test_input($data){
