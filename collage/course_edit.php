@@ -19,7 +19,7 @@ if(isset($_SESSION["username"])){
 
 
 }else{
-    header("Location: ../app/login.php");
+    header("Location: ../auth/login.php");
 }
 
 
@@ -44,7 +44,7 @@ if(isset($_SESSION["username"])){
     </style>
 
 </head>
-<body>
+<body>enrollment_List
     <!-- header -->
     <?php include("..//layout//header.php") ?>
     <!-- side -->

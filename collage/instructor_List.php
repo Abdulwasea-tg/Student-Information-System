@@ -31,7 +31,7 @@ if(isset($_SESSION["username"])){
     }
 
 }else{
-    header("Location: ../app/login.php");
+    header("Location: ../auth/login.php");
 }
 
 
