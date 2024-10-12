@@ -53,9 +53,9 @@ if(isset($_SESSION["username"])){
     <div class="center">
         <!-- titel -->
         <span class="titel">
-            <i class="icon"><img class="title_ico" src="..//assets//img//icon//job.png" alt="noimg"></img></i>
+            <i class="icon"><img class="title_ico" src="..//assets//img//icon//instructor.png" alt="noimg"></img></i>
             <h3>Instructors Management</h3>    
-        </span>
+        </span><br><br>
         
         <!-- countent1 -->
         <!-- <div> -->

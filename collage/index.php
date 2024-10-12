@@ -92,16 +92,17 @@ include("controll/ControllerIndex.php");
     <?php include("..//layout//header.php") ?>
     <!-- side -->
     <?php include("..//side.php") ?>
+
+
+    <!-- center -->
+    <div class="center">
     <div >
                 <!-- titel -->
         <span class="titel">
             <i class="icon"><img class="title_ico" src="..//assets//img//icon//home.png" alt="noimg"></img></i>
             <h3>Dashbboard</h3>    
         </span>
-    </div>
-
-    <!-- center -->
-    <div class="center">
+    </div><br><br>
         
         <!-- countent1 -->
         <div>

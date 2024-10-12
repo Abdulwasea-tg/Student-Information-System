@@ -52,9 +52,9 @@ if(isset($_SESSION["username"])){
     <div class="center">
         <!-- titel -->
         <span class="titel">
-            <i class="icon"><img class="title_ico" src="..//assets//img//icon//job.png" alt="noimg"></img></i>
-            <h3>departments Management</h3>    
-        </span>
+            <i class="icon"><img class="title_ico" src="..//assets//img//icon//building.png" alt="noimg"></img></i>
+            <h3>Edit department</h3>    
+        </span><br><br>
         
         <!-- countent1 -->
         <!-- <div> -->
