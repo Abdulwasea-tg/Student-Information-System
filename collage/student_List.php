@@ -86,28 +86,26 @@ if(isset($_SESSION["username"])){
                     </td>
                 </tr>
                 <tr>
-                    <td colspan="2"><label for="" class="label-input">Mobile*</label>
+                    <td><label for="" class="label-input">Mobile*</label>
                         <input type="tel" name="txtMobile" id="txtMobile" required  placeholder="999594949559" value="<?php echo $txtMobile ;?>">
                         <span class="error"><?php echo "{$error["txtMobileErr"]}"; ?></span>
                     </td>
-                </tr>
-                <tr>
                     <td><label for="" class="label-input">Birth Date*</label>
                         <input type="date" name="BirthDate" id="BirthDate" required>
                         <span class="error"><?php echo $error["BirthDateErr"]; ?>
                     </td>
-
+                </tr>
+                <tr>
                     <td><label for="" class="label-input">Address*</label>
                         <input type="text" name="txtAddress" id="txtAddress" required  placeholder="Jedah,23st" value="<?php echo $txtAddress ;?>">
                         <span class="error"><?php echo $error["txtAddressErr"]; ?></span>
                     </td>
-                
-                </tr>
-                <tr>
                     <td><label for="" class="label-input">Gender*</label><br>  
-                    <input type="radio" name="gender" id="gender"  value="male"   style="width:auto">  Male
-                    <input type="radio" name="gender" id="gender" value="female"  style="width:auto">  Female
-                    <span class="error"><?php echo $error["genderErr"]; ?></td>
+                        <input type="radio" name="gender" id="gender"  value="male"   style="width:auto">  Male
+                        <input type="radio" name="gender" id="gender" value="female"  style="width:auto">  Female
+                        <span class="error"><?php echo $error["genderErr"]; ?>
+                    </td>
+                    
                 </tr>
                 <tr>
                     <td><input type="submit" name="addStudent" id="addStudent" value="Add"></td>

@@ -33,7 +33,7 @@ if(isset($_SESSION["username"])){
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>department</title>
+    <title>Department</title>
     <link rel="stylesheet" type="text/css" href="..//gridviewStyle.css">
     <link rel="stylesheet" type="text/css" href="..//css.css">
     <style>
@@ -58,7 +58,7 @@ if(isset($_SESSION["username"])){
         <!-- titel -->
         <span class="titel">
             <i class="icon"><img class="title_ico" src="..//assets//img//icon//building.png" alt="noimg"></img></i>
-            <h3>departments Management</h3>    
+            <h3>Departments Management</h3>    
         </span><br><br>
         
         <!-- countent1 -->
@@ -75,15 +75,12 @@ if(isset($_SESSION["username"])){
                         <input type="text" name="txtDepartmentName" id="txtDepartmentName"  placeholder="Enter department name" value="<?php echo $txtDepartmentName ;?>">
                         <span class="error"><?php echo $error["txtDepartmentNameErr"]; ?></span>
                     </td>
-                </tr>
-                <tr>
                     <td>
                         <label for="" class="label-input">Head Of Department*</label>
                         <input type="text" name="txtHeadOfDepartment" id="txtHeadOfDepartment" placeholder="Enter Head">
                         <span class="error"><?php echo $error["txtHeadOfDepartmentErr"]; ?></span>
                     </td>
                 </tr>
-
                 <tr>
                     <td><input type="submit" name="addDepartment" id="addDepartment" value="Add"></td>
                 </tr>

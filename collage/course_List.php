@@ -79,7 +79,7 @@ if(isset($_SESSION["username"])){
             <table class="table-input">
                 
                 <tr>
-                    <td colspan="1"><label for="" class="label-input">Course Name*</label>
+                    <td colspan="2"><label for="" class="label-input">Course Name*</label>
                         <input type="text" name="txtCourseName" id="txtCourseName"  placeholder="Enter course name" value="<?php echo $txtCourseName ;?>">
                         <span class="error"><?php echo $error["txtCourseNameErr"]; ?></span>
                     </td>
@@ -90,10 +90,8 @@ if(isset($_SESSION["username"])){
                         <input type="number" name="txtCredits" id="txtCredits" placeholder="Enter Credits">
                         <span class="error"><?php echo $error["txtCreditsErr"]; ?></span>
                     </td>
-                </tr>
-                <tr>
                     <td>
-                        <label for="" class="label-input">Department*</label>
+                        <label for="" class="label-input">Select Department*</label>
                         <select name="department" id="department">
                             <?php foreach ($department_set as $row) { ?>
                                 <option value="<?php echo $row[0] ?>"><?php echo $row[1] ?></option>

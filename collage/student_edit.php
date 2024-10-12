@@ -86,28 +86,25 @@ if(isset($_SESSION["username"])){
                     </td>
                 </tr>
                 <tr>
-                    <td colspan="2"><label for="" class="label-input">Mobile*</label>
+                    <td><label for="" class="label-input">Mobile*</label>
                         <input type="tel" name="txtMobile" id="txtMobile" required  value="<?php echo $student['contact_info'] ;?>">
                         <span class="error"><?php echo "{$error["txtMobileErr"]}"; ?></span>
                     </td>
-                </tr>
-                <tr>
                     <td><label for="" class="label-input">Birth Date*</label>
                         <input type="date" name="BirthDate" id="BirthDate" required value="<?php echo $student['date_of_birth']; ?>">
                         <span class="error"><?php echo $error["BirthDateErr"]; ?>
                     </td>
-
+                </tr>
+                <tr>
                     <td><label for="" class="label-input">Address*</label>
                         <input type="text" name="txtAddress" id="txtAddress" required  value="<?php echo $student['address'] ;?>">
                         <span class="error"><?php echo $error["txtAddressErr"]; ?></span>
                     </td>
-                
-                </tr>
-                <tr>
                     <td><label for="" class="label-input">Gender*</label><br>  
                         <input type="radio" name="gender" id="gender"  value="male"  <?php if($student["gender"]=="male"){echo "checked";} ?> style="width:auto">  Male
                         <input type="radio" name="gender" id="gender" value="female" <?php if($student["gender"]=="female"){echo "checked";} ?> style="width:auto">  Female
-                    <span class="error"><?php echo $error["genderErr"]; ?></td>
+                        <span class="error"><?php echo $error["genderErr"]; ?>
+                    </td>
                 </tr>
                 <tr>
                     <td><input type="submit" name="updateStudent" id="updateStudent" value="Update"></td>

@@ -81,7 +81,7 @@ if(isset($_SESSION["username"])){
                 </tr>
 
                 <tr>
-                    <td><input type="submit" name="updateDepartment" id="updateDepartment" value="Add"></td>
+                    <td><input type="submit" name="updateDepartment" id="updateDepartment" value="Update"></td>
                 </tr>
             </table>
             </form>

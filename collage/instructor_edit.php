@@ -29,7 +29,7 @@ if(isset($_SESSION["username"])){
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Edite Department</title>
     <link rel="stylesheet" type="text/css" href="..//gridviewStyle.css">
     <link rel="stylesheet" type="text/css" href="..//css.css">
     <style>
@@ -84,7 +84,7 @@ if(isset($_SESSION["username"])){
                         <span class="error"><?php echo "{$error["emailErr"]}"; ?></span>
                     </td>
 
-                    <td>
+                    <td><label for="" class="label-input">Select Department*</label>
                         <select name="department" id="department">
                             <?php foreach ($_SESSION["department_set"] as $row) { ?>
                                 <option value="<?php echo $row[0] ?>" <?php if($row[0]== $instructor['department_id']) echo "selected"?>><?php echo $row[1] ?></option>
